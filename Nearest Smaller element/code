@@ -1,21 +1,17 @@
-class Solution {
-public:
-    vector<vector<int>> merge(vector<vector<int>>& intervals) 
+int* prevSmaller(int* A, int n1, int *len1) {
+    int i,j;
+    for(i=0;i<len1;i++)
     {
-        sort(intervals.begin(), intervals.end());
-
-        vector<vector<int>> merged;
-        for (auto interval : intervals) 
+        for(j=i-1;j<i;j--)
         {
-            if (merged.empty() || merged.back()[1] < interval[0])
+            if(A[j]<A[i])
             {
-                merged.push_back(interval);
+                return A[j];
             }
-            else 
+            else
             {
-                merged.back()[1] = max(merged.back()[1], interval[1]);
+                return -1;
             }
         }
-        return merged;
     }
-};
+}
