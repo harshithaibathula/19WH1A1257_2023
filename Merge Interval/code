@@ -1,0 +1,17 @@
+int* prevSmaller(int* A, int n1, int *len1) {
+    int i,j;
+    for(i=0;i<len1;i++)
+    {
+        for(j=i-1;j<i;j--)
+        {
+            if(A[j]<A[i])
+            {
+                return A[j];
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    }
+}
